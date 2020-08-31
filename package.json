@@ -1,0 +1,23 @@
+{
+  "name": "jean-librairie-front",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "front": "parcel ./index.html"
+  },
+  "author": "Cabanes Thibault & Mahut Lilian",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^4.14.1",
+    "parcel-bundler": "^1.12.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-is": "^16.13.1",
+    "react-redux": "^7.2.1",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
+  }
+}

@@ -29,7 +29,7 @@ const Login = (props) => {
                         setPassword(event.target.value)} value={password} type="password" required />
                 </div>
                 <button type="submit">Se connecter</button>
-                <p>Pas encore inscrit ?<span onClick={displayRegisterModale}>S'inscrire</span></p>
+                <p>Pas encore inscrit ?<u onClick={displayRegisterModale}>S'inscrire</u></p>
                 { error && <span>{ error }</span> }
             </form>
 

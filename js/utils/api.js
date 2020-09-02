@@ -1,8 +1,9 @@
 import axios from "axios"
-import { PORT } from "../../../config/server.json"
+// import { serverConfig } from "../../../config/server.json"
+// const PORT = serverConfig.PORT
 
 const instance = axios.create({
-    baseURL: `http://localhost:${PORT}/api/`
+    baseURL: "http://localhost:5000/"
 })
 
 export const addAuth = token => {

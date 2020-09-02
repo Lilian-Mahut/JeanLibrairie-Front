@@ -1,0 +1,12 @@
+@mixin flxRowCtr() {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin flxColCtr() {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}

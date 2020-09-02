@@ -9,17 +9,17 @@ const Modale = (props) => {
     const modal = useSelector(state => state.sign.isModalShowing)
 
     return (
-			<div id='OutSideModale' onClick={props.clickOutSide}>
+		<div id='OutSideModale' onClick={props.clickOutSide}>
+			<div>
+				{modal.title && <h2>{modal.title}</h2>}
 				<div>
-					{modal.title && <h2>{modal.title}</h2>}
-					<div>
-						{modal.type === "login"}
-						{/* {modal.type === "login" && <Login />}
-						{modal.type === "register" && <Register />} */}
-					</div>
+					{modal.type === "login"}
+					{modal.type === "login" && <Login />}
+					{modal.type === "register" && <Register />}
 				</div>
 			</div>
-		)
+		</div>
+	)
 }
 
 export default Modale

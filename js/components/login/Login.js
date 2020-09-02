@@ -7,7 +7,7 @@ const Login = (props) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const displayRegisterModale = () => dispatch({
-        type: "TOGGLE_IS_MODAL_SHOWING", payload: {type: "register", title: "register"}
+        type: "TOGGLE_IS_MODAL_SHOWING", payload: {type: "register", title: "Register"}
     })
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -29,6 +29,8 @@ const Login = (props) => {
                         setPassword(event.target.value)} value={password} type="password" required />
                 </div>
                 <button type="submit">Se connecter</button>
+                <p>Pas encore inscrit ?<span onClick={displayRegisterModale}>S'inscrire</span></p>
+                { error && <span>{ error }</span> }
             </form>
 
         </div>

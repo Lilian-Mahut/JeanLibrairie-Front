@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux"
 import "./Header.scss"
 
 import Login from "../login/Login"
-// import Register from "../register/Register"
+import Register from "../register/Register"
 
 const Header = props => {
     const dispatch = useDispatch()

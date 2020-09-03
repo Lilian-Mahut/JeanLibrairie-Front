@@ -6,6 +6,8 @@ import { Link, Route } from "react-router-dom"
 import Gallery from '../components/books/Gallery'
 import DashboardHome from '../components/dashboard/DashboardHome'
 
+import "./Dashboard.scss"
+
 export default ({ match }) => {
 	const dispatch = useDispatch()
 	const user = useSelector(state => state.dashboard.user)
@@ -20,8 +22,8 @@ export default ({ match }) => {
 				null === user ? 
 					'Initialising Dashboard' 
 				: (
-					<div>
-						<nav>
+					<div className="Dashboard">
+						<nav className="DashboardNav">
 							<ul>
 								<li><Link to={ `${match.path}` }>Home</Link></li>
 								<li><Link to={ `${match.path}/books` }>Books</Link></li>
@@ -29,11 +31,12 @@ export default ({ match }) => {
 								<li><Link to={ `${match.path}/about` }>About</Link></li>
 							</ul>
 						</nav>
-						<h2>Dashboard</h2>
-						<Route exact path={ match.path } component={ DashboardHome } />
-						<Route path={ `${match.path}/books`} component={ Gallery }/>
-						<Route path={ `${match.path}/calendar`}><h3>Calendar</h3></Route>
-						<Route path={ `${match.path}/about`}><h3>About</h3></Route>
+						<div className="DashboardContent">
+							<Route exact path={ match.path } component={ DashboardHome } />
+							<Route path={ `${match.path}/books`} component={ Gallery }/>
+							<Route path={ `${match.path}/calendar`}><h3>Calendar</h3></Route>
+							<Route path={ `${match.path}/about`}><h3>About</h3></Route>
+						</div>
 					</div>
 				)
 			}

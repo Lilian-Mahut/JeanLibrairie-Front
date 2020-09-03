@@ -1,0 +1,23 @@
+@import "../../styles/colors";
+@import "../../styles/mixins";
+
+.Button {
+	@include flxRowCtr();
+	width: 150px;
+	height: 35px;
+	border: 1px solid $grey;
+	border-radius:  3px;
+	background-color: $bluemarine;
+	box-sizing: border-box;
+
+	&.small {
+		width: 85px;
+	}
+
+	p {
+		margin: 0;
+		color: white;
+		font-weight: bold;
+		font-size: 17px;
+	}
+}

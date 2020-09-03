@@ -26,7 +26,7 @@ const Login = (props) => {
         // dispatch({ type: "CONNECTING_AUTH_USER", payload: { email, password }})
             .finally(() => {
                 setPassword('')
-                window.location.href="http://localhost:1234/user/dashboard"
+                window.location.href="http://localhost:1234/dashboard"
             })
     }
 

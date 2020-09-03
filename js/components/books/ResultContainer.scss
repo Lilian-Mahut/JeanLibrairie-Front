@@ -1,0 +1,13 @@
+.ResultSection {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: 400px;
+	grid-auto-rows: 400px;
+	justify-content: center;
+	justify-items: center;
+
+	&.small {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}

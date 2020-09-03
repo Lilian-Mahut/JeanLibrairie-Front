@@ -1,0 +1,53 @@
+@import "../../styles/colors";
+@import "../../styles/mixins";
+
+.BookResult {
+	padding: 15px 30px;
+	border:  1px solid #0000001c;
+	border-radius: 15px;
+	margin: 2%;
+	width: 200px;
+
+	.BookResultCadre {
+		background-color: black;
+		width: 100%;
+		height: 120px;
+		border-radius: 10px 10px 0 0;
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+
+		.BookResultView {
+			background-size: cover;
+			width: 100px;
+			height: 100px;
+		}
+	}
+
+	h3 {
+		margin: 5px 0;
+		font-size: 1.2rem;
+		text-align: center;
+		height: 80px;
+	}
+	.genre {
+		height: 3vh;
+		margin-top:4px;
+		span {
+			font-size: .8rem;
+			text-transform: uppercase;
+			vertical-align: middle;
+			background-color: $yellow;
+			border: 1px solid $grey;
+			border-radius: 4px;
+			padding: 1px 8px;
+		}
+	}
+	.publish p {
+		margin: 4px 0;
+	}
+
+	.ReturnButton {
+		@include flxRowCtr();
+	}
+}

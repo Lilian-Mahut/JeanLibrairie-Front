@@ -1,0 +1,19 @@
+@import "../styles/colors";
+@import "../styles/mixins";
+
+.Dashboard {
+	display: flex;
+	justify-content: flex-start;
+
+	.DashboardNav {
+		@include flxColCtr();
+		height: fit-content;
+		min-width: 300px;
+		max-width: 300px;
+		border-right: 1px solid $grey;
+	}
+
+	.DashboardContent {
+		width: 100%;
+	}
+}

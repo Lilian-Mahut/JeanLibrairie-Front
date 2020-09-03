@@ -16,7 +16,8 @@ export default () => {
         	loggerMiddleware,
         	booksMiddleware,
         	bookMiddleware,
-            appMiddleware
+            appMiddleware,
             dashboardMiddleware,
+        )
     )
 }

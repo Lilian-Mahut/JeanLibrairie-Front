@@ -1,4 +1,5 @@
 import React, {useState } from "react"
+import axios from "axios"
 
 import "./Register.scss"
 
@@ -10,6 +11,7 @@ const Register = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
+        axios.post("http://localhost:5000/user/register", {username, email, password})
         setIsLoading(true)
         const body = {
             username, email, password

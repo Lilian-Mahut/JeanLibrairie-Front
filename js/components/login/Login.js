@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import axios, { addAuth } from "../../utils/api"
+import { setStorageToken } from "../../utils/localStorage"
 
 const Login = (props) => {
     const dispatch = useDispatch()
@@ -11,7 +13,15 @@ const Login = (props) => {
     })
     const handleSubmit = (event) => {
         event.preventDefault()
-        dispatch({ type: "CONNECTING_AUTH_USER", payload: { email, password }})
+        console.log(email, password)
+        axios.post("user/authenticate", {email: email, password: password})
+        .then (response => {
+            addAuth(response.data)
+            dispatch({type: "SET_AUTH_TOKEN", payload: response.data})
+            setStorageToken(response.data)
+         })
+        .catch(error => console.log(error))
+        // dispatch({ type: "CONNECTING_AUTH_USER", payload: { email, password }})
         setPassword('')
     }
 

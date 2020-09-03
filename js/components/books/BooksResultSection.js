@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import '../../styles/components/books/BooksResultSection.scss'
+import "./BooksResultSection.scss"
 
 export default ({ match }) => {
 	let dispatch = useDispatch()
@@ -22,16 +22,18 @@ export default ({ match }) => {
 			{ results.length > 0 && results.map((book, i) => (
 				<div key = { i } className="BookResult">
 					<div className="BookResultView" style={ { backgroundImage: `url(${book.image})` } } />
-					<h3>{ book.title }</h3>
-					<p>{ book.authors.length > 0 && book.authors.map((author) => author.name).reduce((acc, cur) => `${ acc }, ${ cur }`) }</p>
-					<div style={ { display: 'inline' } }>
-						<div>
-							{ book.categories.length > 0 && book.categories.map((category, j) => (
-								<p key={ j }>{ category.slug }</p>
-							)) }
+						<h3>{ book.title }</h3>
+						<i>{ book.authors.length > 0 && book.authors.map((author) => author.name).reduce((acc, cur) => `${ acc }, ${ cur }`) }</i>
+						<div className="info">
+							<div className="genre">
+								{ book.categories.length > 0 && book.categories.map((category, j) => (
+									<span key={ j }>{ category.slug }</span>
+								)) }
+							</div>
+							<div className="publish">
+								<p>Published in { book.publication? book.publication.substring(0, 4) : '/' }</p>
+							</div>
 						</div>
-						<p>Published : { book.publication? book.publication.substring(0, 4) : '/' }</p>
-					</div>
 				</div>
 			)) }
 		</div>

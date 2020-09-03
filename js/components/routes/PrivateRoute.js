@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { Redirect, Route } from 'react-router-dom'
 
 export default ({component: Component, role, ...rest}) => {
-	const userRole = null //useSelector(state => state.me.role)
+	const userRole = useSelector(state => state.auth.role)
 	const access = ('admin' === role)? (userRole === 'admin') : (userRole === 'admin' || userRole === 'user')
 
 	return (

@@ -3,6 +3,7 @@ import { combineReducers } from "redux"
 const initialState = {
     isLoading: false,
     token: null,
+    role: null,
     user: null,
     error: null
 }
@@ -21,6 +22,16 @@ const state = {
             case "SET_AUTH_TOKEN":
                 return action.payload
             case "CLEAR_AUTH_TOKEN":
+                return null
+            default:
+                return state
+        }
+    },
+    role: (state = initialState.role, action) => {
+        switch (action.type) {
+            case "SET_AUTH_ROLE":
+                return action.payload
+            case "CLEAR_AUTH_ROLE":
                 return null
             default:
                 return state

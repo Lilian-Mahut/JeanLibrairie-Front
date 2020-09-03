@@ -4,6 +4,7 @@ import auth from "./auth"
 import sign from "./sign"
 import books from "./books"
 import book from "./book"
+import dashboard from "./dashboard"
 
 const createRootReducer = combineReducers(
     {
@@ -11,7 +12,8 @@ const createRootReducer = combineReducers(
         auth,
         book,
         books,
-        sign
+        sign,
+        dashboard
     }
 )
 

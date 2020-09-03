@@ -1,5 +1,9 @@
 import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import axios, { addAuth } from "../../utils/api"
+import { setStorageToken } from "../../utils/localStorage"
+
+import "./Login.scss"
 
 const Login = (props) => {
     const dispatch = useDispatch()
@@ -7,12 +11,23 @@ const Login = (props) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const displayRegisterModale = () => dispatch({
-        type: "TOGGLE_IS_MODAL_SHOWING", payload: {type: "register", title: "register"}
+        type: "TOGGLE_IS_MODAL_SHOWING", payload: {type: "register", title: "Register"}
     })
     const handleSubmit = (event) => {
         event.preventDefault()
-        dispatch({ type: "CONNECTING_AUTH_USER", payload: { email, password }})
-        setPassword('')
+        axios
+            .post("user/authenticate", {email: email, password: password})
+            .then (response => {
+                addAuth(response.data)
+                dispatch({type: "SET_AUTH_TOKEN", payload: response.data})
+                setStorageToken(response.data)
+            })
+            .catch(error => console.log(error))
+        // dispatch({ type: "CONNECTING_AUTH_USER", payload: { email, password }})
+            .finally(() => {
+                setPassword('')
+                window.location.href="http://localhost:1234/user/dashboard"
+            })
     }
 
     return (
@@ -29,6 +44,8 @@ const Login = (props) => {
                         setPassword(event.target.value)} value={password} type="password" required />
                 </div>
                 <button type="submit">Se connecter</button>
+                <p>Pas encore inscrit ?<u onClick={displayRegisterModale}>S'inscrire</u></p>
+                { error && <span>{ error }</span> }
             </form>
 
         </div>

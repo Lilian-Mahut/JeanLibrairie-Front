@@ -10,9 +10,9 @@ const Modale = (props) => {
 
     return (
 		<div id='OutSideModale' onClick={props.clickOutSide}>
-			<div>
+			<div className="containerModale">
 				{modal.title && <h2>{modal.title}</h2>}
-				<div>
+				<div className="choice">
 					{modal.type === "login"}
 					{modal.type === "login" && <Login />}
 					{modal.type === "register" && <Register />}

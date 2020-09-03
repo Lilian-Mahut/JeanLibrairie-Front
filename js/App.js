@@ -3,11 +3,9 @@ import Dashboard from './pages/Dashboard'
 import Gallery from './components/books/Gallery'
 import Home from './pages/Home'
 import PrivateRoute from './components/routes/PrivateRoute'
-import React from "react"
-
+import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom"
-
 
 import Header from "./components/header/Header"
 import Modale from "./components/modale/Modale"
@@ -21,6 +19,9 @@ const App = () => {
 		if (event.target.id === "OutSideModale")
 			dispatch({ type: "TOGGLE_IS_MODAL_SHOWING"})
 	}
+	useEffect(() => {
+		dispatch({ type: "INIT_APP" })
+	}, [])
 
     return (
         <Router>

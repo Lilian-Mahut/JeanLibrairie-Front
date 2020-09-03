@@ -1,8 +1,12 @@
 import React, {useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import axios, { addAuth } from "../../utils/api"
+import { setStorageToken } from "../../utils/localStorage"
 
 import "./Register.scss"
 
 const Register = (props) => {
+    const dispatch = useDispatch()
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -10,7 +14,18 @@ const Register = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        setIsLoading(true)
+        axios
+            .post("user/register", { username, email, password })
+            .then(response => {
+                addAuth(response.data)
+                dispatch({ type: "SET_AUTH_TOKEN", payload: response.data })
+                setStorageToken(response.data)
+            })
+            .catch(error => console.log(error))
+            .finally(() => {
+                setIsLoading(true)
+                window.location.href = "http://localhost:1234/"
+            })
         const body = {
             username, email, password
         }

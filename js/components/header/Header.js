@@ -17,18 +17,18 @@ const Header = props => {
         })
 
     return (
-			<div className='containerHeader'>
-				<div className='logo'></div>
-				<div className='sign'>
-					<div className='login'>
-						<button onClick={displayLoginModale}>Se connecter</button>
-					</div>
-					<div className='register'>
-						<button onClick={displayRegisterModale}>Créer un compte</button>
-					</div>
-				</div>
-			</div>
-		)
+        <div className='containerHeader'>
+            <div className='logo'></div>
+            <div className='sign'>
+                <div className='login'>
+                    <button onClick={displayLoginModale}>Se connecter</button>
+                </div>
+                <div className='register'>
+                    <button onClick={displayRegisterModale}>Créer un compte</button>
+                </div>
+            </div>
+        </div>
+    )
 }
 
 export default Header

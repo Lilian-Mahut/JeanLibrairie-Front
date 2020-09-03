@@ -29,7 +29,7 @@ const connectingAuthUser = (store, action) => {
 const connectingAuthUserWithCookie = (store) => {
     store.dispatch({type: "TOGGLE_AUTH_IS_LOADING"})
     api
-        .post("/user/isAuth", {},{withCredentials: true})
+        .post("user/isAuth", {},{withCredentials: true})
         .then(response => {
             addAuth(response.data)
             store.dispatch({type: "SET_AUTH_TOKEN", payload: response.data})

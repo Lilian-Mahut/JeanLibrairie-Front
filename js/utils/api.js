@@ -1,6 +1,4 @@
 import axios from "axios"
-// import { serverConfig } from "../../../config/server.json"
-// const PORT = serverConfig.PORT
 
 const instance = axios.create({
     baseURL: "http://localhost:5000/"

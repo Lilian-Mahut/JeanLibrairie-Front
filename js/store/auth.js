@@ -4,8 +4,7 @@ const initialState = {
     isLoading: false,
     token: null,
     user: null,
-    error: null,
-    appInitialized: null
+    error: null
 }
 
 const state = {
@@ -43,16 +42,6 @@ const state = {
                 return action.payload
             case "CLEAR_AUTH_ERROR":
                 return null
-            default:
-                return state
-        }
-    },
-    appInitialized: (state = initialState.appInitialized, action) => {
-        switch (action.type) {
-            case "FETCH_USER":
-                return state
-            case "APP_INITIALIZED":
-                return true
             default:
                 return state
         }

@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux"
 import axios, { addAuth } from "../../utils/api"
 import { setStorageToken } from "../../utils/localStorage"
 
+import "./Login.scss"
+
 const Login = (props) => {
     const dispatch = useDispatch()
     const { isLoading, error } = useSelector(state => state.auth)
@@ -13,16 +15,19 @@ const Login = (props) => {
     })
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log(email, password)
-        axios.post("user/authenticate", {email: email, password: password})
-        .then (response => {
-            addAuth(response.data)
-            dispatch({type: "SET_AUTH_TOKEN", payload: response.data})
-            setStorageToken(response.data)
-         })
-        .catch(error => console.log(error))
+        axios
+            .post("user/authenticate", {email: email, password: password})
+            .then (response => {
+                addAuth(response.data)
+                dispatch({type: "SET_AUTH_TOKEN", payload: response.data})
+                setStorageToken(response.data)
+            })
+            .catch(error => console.log(error))
         // dispatch({ type: "CONNECTING_AUTH_USER", payload: { email, password }})
-        setPassword('')
+            .finally(() => {
+                setPassword('')
+                window.location.href="http://localhost:1234/user/dashboard"
+            })
     }
 
     return (
